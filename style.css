@@ -1,0 +1,289 @@
+@font-face {
+    font-family: "Noto Sans";
+    src: url("/assets/fonts/NotoSans-VariableFont_wdth\,wght.ttf") format("truetype");
+    font-weight: 100 900;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "Noto Sans";
+    src: url("/assets/fonts/NotoSans-Italic-VariableFont_wdth\,wght.ttf") format("truetype");
+    font-weight: 100 900;
+    font-style: italic;
+}
+
+
+
+:root {
+    --light-gradient: linear-gradient(180deg, #EBF2FC 0%, #EEF8F9 100%);
+    --dark-gradient: linear-gradient(180deg, #040918 0%, #091540 100%);
+
+    --neutral-900: hsl(227, 75%, 14%);
+    --neutral-800: hsl(226, 25%, 17%);
+    --neutral-700: hsl(225, 23%, 24%);
+    --neutral-600: hsl(226, 11%, 37%);
+    --neutral-300: hsl(0, 0%, 78%);
+    --neutral-200: hsl(217, 61%, 90%);
+    --neutral-100: hsl(0, 0%, 93%);
+    --neutral-0: hsl(200, 60%, 99%);
+
+    --red-400: hsl(3, 86%, 64%);
+    --red-500: hsl(3, 71%, 56%);
+    --red-700: hsl(3, 77%, 44%);
+
+
+    --paragraph-size: 16px;
+
+
+}
+
+
+body {
+    min-height: 100vh;
+    line-height: 1.5;
+
+    font-family: "Noto Sans", sans-serif;
+
+    background-image: var(--light-gradient);
+    padding: 2rem 5rem;
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+img {
+    display: block;
+    max-width: 100%;
+}
+
+input,
+button,
+textarea,
+select {
+    font: inherit;
+}
+
+button {
+    border: none;
+}
+
+p {
+    font-size: var(--paragraph-size);
+}
+
+
+
+.btn {
+    padding: 0.3rem 0.7rem;
+    border-radius: 20px;
+    border: solid 1px var(--neutral-300);
+    background-color: var(--neutral-0);
+    transition: background-color ease 0.4s;
+}
+
+
+.header {
+    background-color: var(--neutral-0);
+    border: solid 1px var(--neutral-300);
+    border-radius: 20px;
+    padding: 0.5rem 1.5rem;
+    margin-bottom: 2rem;
+}
+
+.header-container {
+    display: flex;
+    justify-content: space-between;
+    border-radius: 20px;
+
+}
+
+.header button {
+    padding: 0.8rem;
+    border-radius: 15px;
+    transition: background-color ease 0.4s;
+}
+
+.section-header {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    text-align: center;
+    margin-bottom: 1rem;
+}
+
+.buttons {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+}
+
+
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+    gap: 1rem;
+}
+
+
+.card {
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+    background-color: var(--neutral-0);
+    padding: 1rem;
+    border: solid 1px var(--neutral-300);
+    border-radius: 15px;
+    min-width: 220px;
+}
+
+.card-header {
+    display: flex;
+    gap: 1rem;
+}
+
+.card-logo {
+    align-self: self-start;
+}
+
+.card-name {
+    font-size: 1.3rem;
+    font-weight: bold;
+}
+
+.card-description {
+    color: var(--neutral-600);
+}
+
+.card-bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+
+
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 30px;
+    height: 17px;
+}
+
+.switch input {
+    height: 0;
+    width: 0;
+    opacity: 0;
+}
+
+.slider {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: var(--neutral-300);
+    border-radius: 17px;
+    cursor: pointer;
+    transition: background-color ease 0.4s;
+}
+
+
+.slider::before {
+    content: "";
+    position: absolute;
+    height: 13px;
+    width: 13px;
+    left: 2px;
+    bottom: 2px;
+    background-color: var(--neutral-0);
+    border-radius: 50%;
+    transition: 0.4s;
+}
+
+
+input:checked+.slider {
+    background-color: var(--red-700);
+}
+
+
+input:checked+.slider::before {
+    transform: translateX(13px);
+}
+
+
+/*dark*/
+
+body.dark {
+    background-image: var(--dark-gradient);
+}
+
+
+.dark .header,
+.dark .btn,
+.dark .card {
+    background-color: var(--neutral-700);
+    border: solid 1px var(--neutral-600);
+    color: var(--neutral-0);
+}
+
+.dark .header button,
+.dark .slider {
+    background-color: var(--neutral-600);
+}
+
+.dark .section-header h1 {
+    color: var(--neutral-0);
+}
+
+.dark .card-description {
+    color: var(--neutral-300);
+}
+
+/**/
+.btn.active {
+    background-color: var(--red-500);
+}
+
+.card.hidden {
+    display: none;
+}
+
+/*hovers*/
+
+.btn:hover {
+    background-color: var(--neutral-100);
+}
+
+.btn.active:hover {
+    background-color: var(--red-700);
+}
+
+.header button:hover {
+    background-color: var(--neutral-300);
+}
+
+.card-bottom .btn:hover {
+    background-color: var(--red-700);
+}
+
+.slider:hover {
+    background-color: var(--neutral-600);
+}
+
+input:checked+.slider:hover {
+    background-color: var(--red-500);
+}
+
+
+
+
+@media(max-width: 745px) {
+    .section-header {
+        justify-content: center;
+    }
+}
